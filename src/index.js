@@ -19,7 +19,15 @@ const limiter = rateLimit({
 
 app.use(limiter)
 
-app.get('/', async function (req, res) {
+app.get('/string', async function (req, res) {
+    const titles = (await axios.get('https://gist.githubusercontent.com/MrAuro/57dc83822707119bf07085408bddf4d0/raw/061b7f2c7545d92a6d80adb9cfff9aef85d34b4c/titles.txt')).data;
+    const titlesArray = titles.split('\n');
+    const randomTitle = titlesArray[Math.floor(Math.random() * titlesArray.length)];
+    
+    res.status(200).send(randomTitle)
+})
+
+app.get('/json', async function (req, res) {
     const titles = (await axios.get('https://gist.githubusercontent.com/MrAuro/57dc83822707119bf07085408bddf4d0/raw/061b7f2c7545d92a6d80adb9cfff9aef85d34b4c/titles.txt')).data;
     const titlesArray = titles.split('\n');
     const randomTitle = titlesArray[Math.floor(Math.random() * titlesArray.length)];
