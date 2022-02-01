@@ -1,0 +1,16 @@
+{
+  "name": "random-title-api",
+  "version": "1.0.0",
+  "description": "get a random title from a list of markov chained titles",
+  "main": "index.js",
+  "author": "mmattbtw <matt@mmatt.net>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "express": "^4.17.2",
+    "express-rate-limit": "^6.2.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}
