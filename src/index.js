@@ -7,7 +7,10 @@ const app = express()
 
 const PORT = config.port || 3000;
 
+var cors = require('cors');
+
 app.use(express.json())
+app.use(cors())
 
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
